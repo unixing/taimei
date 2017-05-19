@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ldd.ssm.crm.mapper.AirInfoDataMapper">
+	<select id="getAirInfoDataList" resultType="AirInfoData">
+		select
+		airln_Cd airInfoName,
+		iATA iata,
+		iCAO icao,
+		city_coordinate_j city_coordinate_j,
+		city_coordinate_w city_coordinate_w,
+		air_runway pdNum,
+		air_lvl flyLevel,
+		air_line onlineFlyNum,
+		air_ele airportBG,
+		air_line_domestic glFlyNum,
+		air_line_inter gjFlyNum,
+		air_Passenger_throughput flyPerson,
+		air_year lkjzDate,
+		yeah_air hxjzDate
+		from airportinfonew
+	</select>
+</mapper> 
