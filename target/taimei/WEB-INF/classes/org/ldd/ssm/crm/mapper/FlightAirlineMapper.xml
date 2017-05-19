@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ldd.ssm.crm.mapper.FlightAirlineMapper">
+	<select id="getFlightAirlineData" resultType="FlightAirline" parameterType="FlightAirlineQuery">
+		SELECT f.START_POINT_TYPE startType,f.END_POINT_TYPE endType, f.DISTANCE airLineDistance, f.FLIGHT_AIRLINE_ID flightAirlineId,START_CITY stratCity,END_CITY endCity,START_POINT_ID pointId,END_POINT_ID pointId2 from flight_airline f 
+ 		<include refid="checkCity"></include>
+	</select>
+	<select id="getGuanXiData" resultType="FlightAirline" parameterType="String">
+		SELECT AIRWAY_POINT_ID pointId,FLIGHT_AIRLINE_ID flightAirlineId, NO indexx  from flight_airline_and_point 
+		where FLIGHT_AIRLINE_ID in
+		 <foreach item="flightids" index="index" collection="list" open="(" separator="," close=")">  
+		  	#{flightids}  
+		 </foreach>  
+	</select>
+	<select id="getPointData" resultType="FlightAirline" parameterType="String">
+		SELECT AIRWAY_POINT_ID pointId,LATITUDE stratCityPoit1,LONGITUDE stratCityPoit2,AIRWAY_POINT_NAME stratCity from airway_point 
+		where AIRWAY_POINT_ID in
+		 <foreach item="pointids" index="index" collection="list" open="(" separator="," close=")">  
+		  	#{pointids}  
+		 </foreach>  
+	</select>
+	
+	<select id="getAirportData" resultType="FlightAirline" parameterType="String">
+		SELECT AIRPORT_ID pointId,LATITUDE stratCityPoit1,LONGITUDE stratCityPoit2,NAME stratCity from airport 
+		where AIRPORT_ID in
+		 <foreach item="pointids" index="index" collection="list" open="(" separator="," close=")">  
+		  	#{pointids}  
+		 </foreach>  
+	</select>
+	<sql id="checkCity">
+		<where>
+		<if test="pasCity1!=null">
+			<if test="pasCity2!=null">
+				<if test="stratCity!=null">
+					<if test="endCity!=null">
+						and	((f.START_CITY = #{stratCity} and f.END_CITY = #{pasCity1}) 
+							OR (f.START_CITY = #{pasCity1} and f.END_CITY = #{pasCity2})
+							OR (f.START_CITY = #{pasCity2} and f.END_CITY = #{endCity}))
+					</if>
+				</if>
+			</if>
+			<if test="pasCity2==null">
+				<if test="stratCity!=null">
+					<if test="endCity!=null">
+						and	((f.START_CITY = #{stratCity} and f.END_CITY = #{pasCity1}) 
+							OR (f.START_CITY = #{pasCity1} and f.END_CITY = #{endCity}))
+					</if>
+				</if>
+			</if>
+		</if>
+		<if test="pasCity1==null">
+			<if test="pasCity2==null">
+				<if test="stratCity!=null">
+					<if test="endCity!=null">
+						and	((f.START_CITY = #{stratCity} and f.END_CITY = #{endCity}))
+					</if>
+				</if>
+			</if>
+			<if test="pasCity2!=null">
+				<if test="stratCity!=null">
+					<if test="endCity!=null">
+						and	((f.START_CITY = #{stratCity} and f.END_CITY = #{pasCity2}) 
+							OR (f.START_CITY = #{pasCity2} and f.END_CITY = #{endCity}))
+					</if>
+				</if>
+			</if>
+		</if>
+		</where>
+	</sql>
+</mapper> 

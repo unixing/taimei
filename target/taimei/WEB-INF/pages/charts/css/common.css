@@ -1,0 +1,44 @@
+.addorupdate {
+	border: 1px solid #dedede;
+}
+
+.addorupdate .title {
+	background: #f2f0f1;
+	width: 100%;
+	height: 30px
+}
+
+.addorupdate .title span {
+	line-height: 30px;
+	font-weight: bold;
+	color: #999798;
+}
+
+.addorupdate ul {
+	width: 100%;
+	height: 35px;
+	border-bottom: 1px solid #dedede;
+}
+
+.addorupdate ul li {
+	list-style-type: none;
+	float: left;
+	line-height: 35px;
+	text-indent: 10px;
+	width: 19%;
+}
+
+.addorupdate ul li input {
+	line-height: 22px;
+	width: 150px;
+	border: 1px solid #dedede;
+}
+
+.addorupdate ul li span {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.clear {
+	clear: both;
+}

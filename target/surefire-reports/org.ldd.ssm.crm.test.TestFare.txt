@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: org.ldd.ssm.crm.test.TestFare
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+org.ldd.ssm.crm.test.TestFare.testGetInt()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at org.ldd.ssm.crm.test.TestFare.testGetInt(TestFare.java:65)
+
+org.ldd.ssm.crm.test.TestFare.testsave()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at org.ldd.ssm.crm.test.TestFare.testsave(TestFare.java:71)
+

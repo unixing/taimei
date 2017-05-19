@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="41e5a1ce-f04f-4786-a6d8-8817072600da" name="taimei" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\gitResponsitory" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

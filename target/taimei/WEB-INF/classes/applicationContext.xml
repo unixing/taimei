@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+			 http://cxf.apache.org/jaxws              http://cxf.apache.org/schemas/jaxws.xsd
+			 http://www.springframework.org/schema/websocket  http://www.springframework.org/schema/websocket/spring-websocket.xsd
+			 ">
+
+	<!-- 主配置文件 -->
+	<!-- 引入配置文件 location: 加载指定路径下的配置文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 配置数据库连接 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	<!-- 新增jdbctemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="iAirLineService" class="org.ldd.ssm.crm.service.impl.AirLineServiceImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- 3、Mybatis核心配置 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 数据库连接配置 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 引入mybatis配置 -->
+		<property name="typeAliasesPackage" value="org.ldd.ssm.crm.domain,org.ldd.ssm.crm.query" />
+		<property name="mapperLocations" value="classpath:org/ldd/ssm/crm/mapper/*Mapper.xml" />
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+	</bean>
+	<!-- 4、引入外部bean配置 -->
+	<import resource="applicationContext-mapper.xml" />
+	<import resource="applicationContext-service.xml" />
+	<import resource="applicationContext-mvc.xml" />
+
+
+	<!-- 事物配置： 1） 事务管理器 id:引用的唯一标示 class:管理的事务类 -->
+	<bean id="transactionManager"
+		class=" org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<!-- name:注入的字段名 ref:引用 别的bean -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 2) 切面 -->
+	<aop:config>
+		<!-- id:引用的唯一标示 expression:从哪里切入 通配符政策 ..*.*(..) : '..*' : 表示在org.ldd.ssm.crm.service这个 
+			路径下的子类和子类的子类 '.*' : 表示在所有的方法 '(..)': 表示所有的参数 -->
+		<aop:pointcut id="crmProduct"
+			expression="execution(* org.ldd.ssm.crm.service..*.*(..))" />
+		<!-- advice-ref:通知的引用 pointcut-ref:切入点的引用 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="crmProduct" />
+	</aop:config>
+	<!-- 3） 通知 -->
+	<!-- id: 引用的唯一标示 transaction-manager: 引用事务管理者的id -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- name:管理的方法 支持通配符 propagation: 事务声明类型 SUPPORTS:支持当前事务，如果当前没有事务，就以非事务方式执行。 
+				REQUIRED:支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。 read-only:只读 -->
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="list*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="saveFileData" propagation="SUPPORTS" />
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+
+</beans>

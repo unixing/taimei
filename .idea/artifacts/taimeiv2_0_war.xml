@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="taimeiv2.0:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="taimei.war">
+      <element id="artifact" artifact-name="taimeiv2.0:war exploded" />
+    </root>
+  </artifact>
+</component>

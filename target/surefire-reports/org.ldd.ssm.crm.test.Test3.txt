@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: org.ldd.ssm.crm.test.Test3
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 sec <<< FAILURE!
+org.ldd.ssm.crm.test.Test3.testLink()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at org.ldd.ssm.crm.test.Test3.testLink(Test3.java:30)
+
+org.ldd.ssm.crm.test.Test3.testPort()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at org.ldd.ssm.crm.test.Test3.testPort(Test3.java:63)
+

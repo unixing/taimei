@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: org.ldd.ssm.crm.test.CityTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+org.ldd.ssm.crm.test.CityTest.testname()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at org.ldd.ssm.crm.test.CityTest.testname(CityTest.java:77)
+
