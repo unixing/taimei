@@ -16,6 +16,7 @@ import org.ldd.ssm.crm.query.ProcessTaskQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 /**
  * 生成数据库表字典
  */
