@@ -2,25 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f20060de-59cc-4e9e-a28d-a6ab31286854" name="默认的" comment="项目提交">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/bar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/chord.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/eventRiver.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/force.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/funnel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/gauge.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/heatmap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/k.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/line.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/map.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/pie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/radar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/scatter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/tree.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/treemap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/venn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/chart/wordCloud.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/echarts-all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/echarts/build/source/echarts.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -724,7 +705,7 @@
       <workItem from="1495198446553" duration="2661000" />
       <workItem from="1495203832064" duration="862000" />
       <workItem from="1495207049275" duration="688000" />
-      <workItem from="1495234657473" duration="9042000" />
+      <workItem from="1495234657473" duration="10175000" />
     </task>
     <task id="LOCAL-00001" summary="项目提交">
       <created>1495204531174</created>
@@ -789,11 +770,18 @@
       <option name="project" value="LOCAL" />
       <updated>1495253946660</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="项目提交">
+      <created>1495255072148</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1495255072148</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24979000" />
+    <option name="totallyTimeSpent" value="26112000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
